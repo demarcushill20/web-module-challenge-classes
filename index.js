@@ -148,9 +148,28 @@ class Lambdasian {
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
 
-class Instructor {
+class Instructor extends Lambdasian {
+  constructor({ name, age, location, specialty, favLanguage, catchPhrase }) {
+    super({ name, age, location }); // Call the parent constructor (Lambdasian) and pass the required arguments
 
+    this.specialty = specialty; // Initialize the 'specialty' property with the 'specialty' argument from the object
+    this.favLanguage = favLanguage; // Initialize the 'favLanguage' property with the 'favLanguage' argument from the object
+    this.catchPhrase = catchPhrase; // Initialize the 'catchPhrase' property with the 'catchPhrase' argument from the object
+  }
+
+  demo(subject) {
+    return `Today we are learning about ${subject}`; // Return a string with the subject passed as an argument
+  }
+
+  grade(student, subject) {
+    return `${student.name} receives a perfect score on ${subject}`; // Return a string with the student's name and the subject passed as arguments
+  }
 }
+
+
+
+
+
 
 /*
   TASK 5
