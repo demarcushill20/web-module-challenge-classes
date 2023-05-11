@@ -187,8 +187,26 @@ class Instructor extends Lambdasian {
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
 
-class Student {
-   
+class Student extends Lambdasian {
+  constructor({ name, age, location, previousBackground, className, favSubjects }) {
+    super({ name, age, location }); // Call the parent constructor (Lambdasian) and pass the required arguments
+
+    this.previousBackground = previousBackground; // Initialize the 'previousBackground' property with the 'previousBackground' argument from the object
+    this.className = className; // Initialize the 'className' property with the 'className' argument from the object
+    this.favSubjects = favSubjects; // Initialize the 'favSubjects' property with the 'favSubjects' argument from the object
+  }
+
+  listSubjects() {
+    return `Loving ${this.favSubjects.join(', ')}!`; // Return a string with the student's favorite subjects joined by commas
+  }
+
+  PRAssignment(subject) {
+    return `${this.name} has submitted a PR for ${subject}`; // Return a string indicating that the student has submitted a PR for the given subject
+  }
+
+  sprintChallenge(subject) {
+    return `${this.name} has begun sprint challenge on ${subject}`; // Return a string indicating that the student has begun a sprint challenge for the given subject
+  }
 }
 
 /*
@@ -205,9 +223,27 @@ class Student {
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
 
-class ProjectManager {
-   
+class ProjectManager extends Instructor {
+  constructor({ name, age, location, specialty, favLanguage, catchPhrase, gradClassName, favInstructor }) {
+    super({ name, age, location, specialty, favLanguage, catchPhrase }); // Call the parent constructor (Instructor) and pass the required arguments
+
+    this.gradClassName = gradClassName; // Initialize the 'gradClassName' property with the 'gradClassName' argument from the object
+    this.favInstructor = favInstructor; // Initialize the 'favInstructor' property with the 'favInstructor' argument from the object
+  }
+
+  standUp(channel) {
+    return `${this.name} announces to ${channel}, @channel standy times!`; // Return a string indicating that the Project Manager announces to the given channel for stand-up time
+  }
+
+  debugsCode(student, subject) {
+    return `${this.name} debugs ${student.name}'s code on ${subject}`; // Return a string indicating that the Project Manager debugs the student's code on the given subject
+  }
 }
+
+
+
+
+
 
 /*
   STRETCH PROBLEM (no tests!)
