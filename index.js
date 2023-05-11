@@ -44,7 +44,25 @@ class Airplane {
 */
 
 class Person {
-  
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+    this.stomach = []; // Initialize the stomach as an empty array
+  }
+
+  eat(food) {
+    if (this.stomach.length < 10) {
+      this.stomach.push(food); // Push the food into the stomach
+    }
+  }
+
+  poop() {
+    this.stomach = []; // Empty the stomach
+  }
+
+  toString() {
+    return `${this.name}, ${this.age}`; // Return the string representation of name and age
+  }
 }
 
 /*
