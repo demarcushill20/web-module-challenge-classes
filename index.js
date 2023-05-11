@@ -80,8 +80,30 @@ class Person {
 */
 
 class Car {
-  
+  constructor(model, milesPerGallon) {
+    this.model = model; // Initialize the 'model' property with the 'model' argument
+    this.milesPerGallon = milesPerGallon; // Initialize the 'milesPerGallon' property with the 'milesPerGallon' argument
+    this.tank = 0; // Initialize the 'tank' property at 0
+    this.odometer = 0; // Initialize the 'odometer' property at 0
+  }
+
+  fill(gallons) {
+    this.tank += gallons; // Add the 'gallons' argument to the 'tank'
+  }
+
+  drive(distance) {
+    const maxDistance = this.tank * this.milesPerGallon; // Calculate the maximum distance the car can drive with the current fuel level
+    const actualDistance = Math.min(distance, maxDistance); // Determine the actual distance the car can drive, considering fuel and requested distance
+    this.odometer += actualDistance; // Increase the 'odometer' by the actual distance driven
+    this.tank -= actualDistance / this.milesPerGallon; // Reduce the 'tank' by the fuel consumed for the actual distance driven
+
+    if (this.tank === 0) {
+      // If the tank is empty after driving, return a specific string
+      return `I ran out of fuel at ${this.odometer} miles!`;
+    }
+  }
 }
+
 
 /*
   TASK 3
@@ -97,8 +119,19 @@ class Car {
 */
 
 class Lambdasian {
-  
+  constructor({ name, age, location }) {
+    this.name = name; // Initialize the 'name' property with the 'name' argument from the object
+    this.age = age; // Initialize the 'age' property with the 'age' argument from the object
+    this.location = location; // Initialize the 'location' property with the 'location' argument from the object
+  }
+
+  speak() {
+    return `Hello my name is ${this.name}, I am from ${this.location}`; // Return a string with the name and location from the instance's properties
+  }
 }
+
+
+
 
 /*
   TASK 4
